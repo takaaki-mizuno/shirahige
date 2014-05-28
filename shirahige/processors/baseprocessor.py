@@ -16,9 +16,8 @@ class BaseProcessor():
         pass
 
     def save(self):
-        path = self.app.config['save_path']
-        base_dir = os.path.dirname(os.path.realpath(__file__))
-        file_path = base_dir + "/" + path + "/" + self.url.hash_filename()
-        fh = open('Failed.py', 'wb')
+        path = self.app.get_base_path()
+        file_path = path + "/" + self.url.hash_filename()
+        fh = open(file_path, 'wb')
         fh.write(self.result)
         fh.close()

@@ -6,5 +6,5 @@ from shirahige.processors.baseprocessor import BaseProcessor
 class BinaryProcessor(BaseProcessor):
 
     def process(self):
-        super.process()
+        BaseProcessor.process(self)
         self.result = self.self.response.content

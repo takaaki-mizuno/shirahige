@@ -42,5 +42,5 @@ class HTMLProcessor(BaseProcessor):
 
     def _remove_script(self, doc):
         for script in doc.xpath('//script'):
-            print script
-            doc.remove(script)
+            parent = script.getparent()
+            parent.remove(script)

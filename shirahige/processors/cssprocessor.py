@@ -7,5 +7,5 @@ import cssutils
 class CSSProcessor(BaseProcessor):
 
     def process(self):
-        super.process()
+        BaseProcessor.process(self)
         self.result = self.self.response.text.encode('utf-8')

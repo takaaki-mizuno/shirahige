@@ -10,19 +10,19 @@ class Queue:
         self.downloading = {}
 
     def add(self, url):
-        hashkey = url.hash()
-        if hashkey in self.downloaded or hashkey in self.queue or hashkey in self.downloading:
+        hash_key = url.hash()
+        if hash_key in self.downloaded or hash_key in self.queue or hash_key in self.downloading:
             return False
-        self.queue[hashkey] = url
+        self.queue[hash_key] = url
 
     def next(self):
-        (hashkey, url) = self.queue.popitem()
-        self.downloading[hashkey] = url
+        (hash_key, url) = self.queue.popitem()
+        self.downloading[hash_key] = url
         return url
 
     def finished(self, url):
-        hashkey = url.hash()
-        self.downloaded[hashkey] = url
+        hash_key = url.hash()
+        self.downloaded[hash_key] = url
         del self.downloading[hash()]
 
     def __len__(self):
