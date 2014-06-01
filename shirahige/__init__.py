@@ -40,6 +40,9 @@ class Shirahige():
                 processor = get_processor(url, response, self)
                 processor.process()
                 processor.save()
+            else:
+                print "Error :" + url.absolute()
+                print "Status Code : " + str(response.status_code)
 
     def get_base_path(self):
         base_path = self.config['save_path']

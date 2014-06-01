@@ -8,4 +8,4 @@ class CSSProcessor(BaseProcessor):
 
     def process(self):
         BaseProcessor.process(self)
-        self.result = self.self.response.text.encode('utf-8')
+        self.result = self.response.text.encode('utf-8')

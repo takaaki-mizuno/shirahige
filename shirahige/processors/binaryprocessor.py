@@ -7,4 +7,4 @@ class BinaryProcessor(BaseProcessor):
 
     def process(self):
         BaseProcessor.process(self)
-        self.result = self.self.response.content
+        self.result = self.response.content
