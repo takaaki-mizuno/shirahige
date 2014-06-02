@@ -27,11 +27,11 @@ class HTMLProcessor(BaseProcessor):
                     else:
                         link.set("href", "")
                 elif url.absolute().startswith(self.app.start_url.absolute()):
-                    print "inner:" + href
+#                    print "inner:" + href
                     link.set("href", url.hash_filename())
                     self.app.queue.add(url)
                 else:
-                    print "outer:" + href
+#                    print "outer:" + href
                     link.set("href", url.absolute())
 
     def _replace_css(self, doc):
@@ -39,7 +39,7 @@ class HTMLProcessor(BaseProcessor):
             href = link.get("href")
             if href:
                 url = Url(href, self.url.absolute())
-                print "css:" + url.absolute()
+#                print "css:" + url.absolute()
                 link.set("href", url.hash_filename())
                 self.app.queue.add(url)
 
@@ -48,7 +48,7 @@ class HTMLProcessor(BaseProcessor):
             src = img.get("src")
             if src:
                 url = Url(src, self.url.absolute())
-                print "image:" + url.absolute()
+#                print "image:" + url.absolute()
                 img.set("src", url.hash_filename())
                 self.app.queue.add(url)
 
